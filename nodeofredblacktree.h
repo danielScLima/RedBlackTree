@@ -4,9 +4,9 @@
 /*!
  * \brief The Color enum
  */
-enum Color
+enum RedBlackTreeColor
 {
-    RED, BLACK, DOUBLEBLACK
+    RedBlackTreeColorRED, RedBlackTreeColorBLACK, RedBlackTreeColorDOUBLEBLACK
 };
 
 /*!
@@ -49,7 +49,7 @@ struct NodeOfRedBlackTree
     int height = 0;
     struct NodeOfRedBlackTree* left = nullptr;
     struct NodeOfRedBlackTree* right = nullptr;
-    Color color = Color::RED;
+    RedBlackTreeColor color = RedBlackTreeColor::RedBlackTreeColorRED;
     NodeOfRedBlackTree* father = nullptr;
 };
 

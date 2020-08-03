@@ -18,9 +18,9 @@ enum RotationType
 };
 
 /*!
- * \brief The RemoveReturn struct
+ * \brief The RemoveReturnRB struct
  */
-struct RemoveReturn
+struct RemoveReturnRB
 {
     NodeOfRedBlackTree* toRemoveNode = nullptr;
     NodeOfRedBlackTree* newNodeInthePosition = nullptr;
@@ -203,6 +203,10 @@ public:
      */
     void setAsRoot(NodeOfRedBlackTree* node);
 
+    /*!
+     * \brief cleanTree
+     */
+    void cleanTree();
 private:
     struct NodeOfRedBlackTree* root = nullptr;
 
@@ -276,7 +280,7 @@ private:
      * \param data
      * \return
      */
-    RemoveReturn remove(int data);
+    RemoveReturnRB remove(int data);
 
     /*!
      * \brief replacePointerInFather

@@ -17,7 +17,7 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//Inserting 18
 	r.insertInterface(18);
@@ -26,10 +26,10 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 18);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 7
 	r.insertInterface(7);
@@ -38,13 +38,13 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 18);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 15
 	r.insertInterface(15);
@@ -53,16 +53,16 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 18);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 15);
-	REQUIRE(root->right->left->color == Color::RED);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 16
 	r.insertInterface(16);
@@ -71,19 +71,19 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 16);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 15);
-	REQUIRE(root->right->left->color == Color::RED);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->right->data == 18);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 30
 	r.insertInterface(30);
@@ -92,22 +92,22 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 16);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->left->data == 15);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 18);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->right->data == 30);
-	REQUIRE(root->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 25
 	r.insertInterface(25);
@@ -116,25 +116,25 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 16);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->left->data == 15);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 25);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->left->data == 18);
-	REQUIRE(root->right->right->left->color == Color::RED);
+	REQUIRE(root->right->right->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->right->right->data == 30);
-	REQUIRE(root->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 40
 	r.insertInterface(40);
@@ -143,28 +143,28 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 16);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 10);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->data == 25);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->data == 7);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 15);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 18);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 30);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->right->data == 40);
-	REQUIRE(root->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 60
 	r.insertInterface(60);
@@ -173,31 +173,31 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 16);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 10);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->data == 25);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->data == 7);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 15);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 18);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->right->data == 60);
-	REQUIRE(root->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->right->left->data == 30);
-	REQUIRE(root->right->right->left->color == Color::RED);
+	REQUIRE(root->right->right->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 2
 	r.insertInterface(2);
@@ -206,34 +206,34 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 16);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 10);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->data == 25);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->data == 7);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 15);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 18);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->right->data == 60);
-	REQUIRE(root->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->right->left->data == 30);
-	REQUIRE(root->right->right->left->color == Color::RED);
+	REQUIRE(root->right->right->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->left->data == 2);
-	REQUIRE(root->left->left->left->color == Color::RED);
+	REQUIRE(root->left->left->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 1
 	r.insertInterface(1);
@@ -242,39 +242,39 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 16);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 10);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->data == 25);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->data == 2);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 15);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 18);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//grandchilds
 	REQUIRE(root->left->left->left->data == 1);
-	REQUIRE(root->left->left->left->color == Color::RED);
+	REQUIRE(root->left->left->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->right->data == 7);
-	REQUIRE(root->left->left->right->color == Color::RED);
+	REQUIRE(root->left->left->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	
 	REQUIRE(root->right->right->left->data == 30);
-	REQUIRE(root->right->right->left->color == Color::RED);
+	REQUIRE(root->right->right->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->right->right->data == 60);
-	REQUIRE(root->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//Inserting 70
 	r.insertInterface(70);
@@ -283,42 +283,42 @@ TEST_CASE( "Testing the insert call in the tree", "[single-file]" )
 	REQUIRE(root != nullptr);
 	
 	REQUIRE(root->data == 16);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 10);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 25);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->left->data == 2);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 15);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 18);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//grandchilds
 	REQUIRE(root->left->left->left->data == 1);
-	REQUIRE(root->left->left->left->color == Color::RED);
+	REQUIRE(root->left->left->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->left->left->right->data == 7);
-	REQUIRE(root->left->left->right->color == Color::RED);
+	REQUIRE(root->left->left->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	
 	REQUIRE(root->right->right->left->data == 30);
-	REQUIRE(root->right->right->left->color == Color::BLACK);
+	REQUIRE(root->right->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->right->data == 60);
-	REQUIRE(root->right->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->right->right->data == 70);
-	REQUIRE(root->right->right->right->right->color == Color::RED);
+	REQUIRE(root->right->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 }
 
 TEST_CASE( "Testing the remove call, case 1, situation 1, in the tree", "[single-file]" )
@@ -335,16 +335,16 @@ TEST_CASE( "Testing the remove call, case 1, situation 1, in the tree", "[single
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 20);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 30);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	NodeOfRedBlackTree* nodeRem = r.removeInterface(30);
 	delete nodeRem;
@@ -352,13 +352,13 @@ TEST_CASE( "Testing the remove call, case 1, situation 1, in the tree", "[single
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 20);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 }
 
 TEST_CASE( "Testing the remove call, case 1, situation 2, in the tree", "[single-file]" )
@@ -375,16 +375,16 @@ TEST_CASE( "Testing the remove call, case 1, situation 2, in the tree", "[single
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 20);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 30);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	NodeOfRedBlackTree* nodeRem = r.removeInterface(20);
 	delete nodeRem;
@@ -392,46 +392,46 @@ TEST_CASE( "Testing the remove call, case 1, situation 2, in the tree", "[single
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->data == 7);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->data == 30);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 }
 
 TEST_CASE( "Testing the remove call, case 1, situation 3, in the tree", "[single-file]" )
 {	
 	NodeOfRedBlackTree* root = new NodeOfRedBlackTree(10, nullptr);
-	root->color = Color::BLACK;
+	root->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	//
 	
 	root->left = new NodeOfRedBlackTree(5, root);
-	root->left->color = Color::RED;
+	root->left->color = RedBlackTreeColor::RedBlackTreeColorRED;
 	
 	root->right = new NodeOfRedBlackTree(30, root);
-	root->right->color = Color::RED;
+	root->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
 	
 	//
 	
 	root->left->left = new NodeOfRedBlackTree(2, root->left);
-	root->left->left->color = Color::BLACK;
+	root->left->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	root->left->right = new NodeOfRedBlackTree(9, root->left);
-	root->left->right->color = Color::BLACK;
+	root->left->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	root->right->left = new NodeOfRedBlackTree(25, root->right);
-	root->right->left->color = Color::BLACK;
+	root->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	root->right->right = new NodeOfRedBlackTree(40, root->right);
-	root->right->right->color = Color::BLACK;
+	root->right->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	//
 	
 	root->right->right->left = new NodeOfRedBlackTree(38, root->right->right);
-	root->right->right->left->color = Color::RED;
+	root->right->right->left->color = RedBlackTreeColor::RedBlackTreeColorRED;
 	
 	RedBlackTree r;
 	r.setAsRoot(root);
@@ -442,70 +442,70 @@ TEST_CASE( "Testing the remove call, case 1, situation 3, in the tree", "[single
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//
 	
 	REQUIRE(root->left->data == 5);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	REQUIRE(root->right->data == 38);
-	REQUIRE(root->right->color == Color::RED);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 	//
 	
 	REQUIRE(root->left->left->data == 2);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 9);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->left->data == 25);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 }
 
 TEST_CASE("Testing the remove call, case 1, situation 4, in the tree", "[single-file]")
 {
 	NodeOfRedBlackTree* root = new NodeOfRedBlackTree(10, nullptr);
-	root->color = Color::BLACK;
+	root->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->left = new NodeOfRedBlackTree(5, root);
-	root->left->color = Color::BLACK;
+	root->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right = new NodeOfRedBlackTree(30, root);
-	root->right->color = Color::BLACK;
+	root->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->left->left = new NodeOfRedBlackTree(2, root->left);
-	root->left->left->color = Color::BLACK;
+	root->left->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->left->right = new NodeOfRedBlackTree(9, root->left);
-	root->left->right->color = Color::BLACK;
+	root->left->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->left = new NodeOfRedBlackTree(25, root->right);
-	root->right->left->color = Color::BLACK;
+	root->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->right = new NodeOfRedBlackTree(40, root->right);
-	root->right->right->color = Color::RED;
+	root->right->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
 
 	//
 
 	root->right->right->left = new NodeOfRedBlackTree(35, root->right->right);
-	root->right->right->left->color = Color::BLACK;
+	root->right->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->right->right = new NodeOfRedBlackTree(50, root->right->right);
-	root->right->right->right->color = Color::BLACK;
+	root->right->right->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->right->right->left->right = new NodeOfRedBlackTree(38, root->right->right->left);
-	root->right->right->left->right->color = Color::RED;
+	root->right->right->left->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
 
 	RedBlackTree r;
 	r.setAsRoot(root);
@@ -516,59 +516,59 @@ TEST_CASE("Testing the remove call, case 1, situation 4, in the tree", "[single-
 	root = r.getRoot();
 
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->data == 5);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->data == 35);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->left->data == 2);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->left->right->data == 9);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->left->data == 25);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 
 	//
 
 	REQUIRE(root->right->right->left->data == 38);
-	REQUIRE(root->right->right->left->color == Color::BLACK);
+	REQUIRE(root->right->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->right->right->data == 50);
-	REQUIRE(root->right->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 }
 
 TEST_CASE("Testing the remove call, case 3, situation 1, in the tree", "[single-file]")
 {
 	NodeOfRedBlackTree* root = new NodeOfRedBlackTree(10, nullptr);
-	root->color = Color::BLACK;
+	root->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->left = new NodeOfRedBlackTree(5, root);
-	root->left->color = Color::BLACK;
+	root->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right = new NodeOfRedBlackTree(20, root);
-	root->right->color = Color::RED;
+	root->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
 	
 	//
 
 	root->right->left = new NodeOfRedBlackTree(15, root->right);
-	root->right->left->color = Color::BLACK;
+	root->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->right = new NodeOfRedBlackTree(30, root->right);
-	root->right->right->color = Color::BLACK;
+	root->right->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	RedBlackTree r;
 	r.setAsRoot(root);
@@ -579,48 +579,48 @@ TEST_CASE("Testing the remove call, case 3, situation 1, in the tree", "[single-
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->data == 5);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->data == 20);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//
 	
 	REQUIRE(root->right->right->data == 30);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 }
 
 TEST_CASE("Testing the remove call, case 3 that also tests case 2, situation 2, in the tree", "[single-file]")
 {
 	NodeOfRedBlackTree* root = new NodeOfRedBlackTree(10, nullptr);
-	root->color = Color::BLACK;
+	root->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->left = new NodeOfRedBlackTree(5, root);
-	root->left->color = Color::BLACK;
+	root->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right = new NodeOfRedBlackTree(20, root);
-	root->right->color = Color::BLACK;
+	root->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	//
 
 	root->left->left = new NodeOfRedBlackTree(1, root->left);
-	root->left->left->color = Color::BLACK;
+	root->left->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->left->right = new NodeOfRedBlackTree(7, root->left);
-	root->left->right->color = Color::BLACK;
+	root->left->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	root->right->left = new NodeOfRedBlackTree(15, root->right);
-	root->right->left->color = Color::BLACK;
+	root->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->right = new NodeOfRedBlackTree(30, root->right);
-	root->right->right->color = Color::BLACK;
+	root->right->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	RedBlackTree r;
 	r.setAsRoot(root);
@@ -631,62 +631,62 @@ TEST_CASE("Testing the remove call, case 3 that also tests case 2, situation 2, 
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->data == 5);
-	REQUIRE(root->left->color == Color::RED);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorRED);
 
 	REQUIRE(root->right->data == 20);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//
 	
 	REQUIRE(root->left->left->data == 1);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->left->right->data == 7);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	REQUIRE(root->right->right->data == 30);
-	REQUIRE(root->right->right->color == Color::RED);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 }
 
 TEST_CASE("Testing the remove call, case 4 in the tree", "[single-file]")
 {
 	NodeOfRedBlackTree* root = new NodeOfRedBlackTree(10, nullptr);
-	root->color = Color::BLACK;
+	root->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->left = new NodeOfRedBlackTree(5, root);
-	root->left->color = Color::BLACK;
+	root->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right = new NodeOfRedBlackTree(20, root);
-	root->right->color = Color::BLACK;
+	root->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	//
 	
 	root->left->left = new NodeOfRedBlackTree(1, root->left);
-	root->left->left->color = Color::BLACK;
+	root->left->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->left->right = new NodeOfRedBlackTree(7, root->left);
-	root->left->right->color = Color::BLACK;
+	root->left->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->left = new NodeOfRedBlackTree(15, root->right);
-	root->right->left->color = Color::BLACK;
+	root->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->right = new NodeOfRedBlackTree(30, root->right);
-	root->right->right->color = Color::RED;
+	root->right->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
 	
 	//
 	
 	root->right->right->left = new NodeOfRedBlackTree(25, root->right->right);
-	root->right->right->left->color = Color::BLACK;
+	root->right->right->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	root->right->right->right = new NodeOfRedBlackTree(40, root->right->right);
-	root->right->right->right->color = Color::BLACK;
+	root->right->right->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	RedBlackTree r;
 	r.setAsRoot(root);
@@ -697,70 +697,70 @@ TEST_CASE("Testing the remove call, case 4 in the tree", "[single-file]")
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 10);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->data == 5);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->data == 30);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->left->data == 1);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->left->right->data == 7);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->left->data == 20);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//
 	
 	REQUIRE(root->right->left->right->data == 25);
-	REQUIRE(root->right->left->right->color == Color::RED);
+	REQUIRE(root->right->left->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 }
 
 TEST_CASE("Testing the remove call, case 5, that also tests the cases 3 and 6, in the tree", "[single-file]")
 {
 	NodeOfRedBlackTree* root = new NodeOfRedBlackTree(10, nullptr);
-	root->color = Color::BLACK;
+	root->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	//
 
 	root->left = new NodeOfRedBlackTree(5, root);
-	root->left->color = Color::BLACK;
+	root->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right = new NodeOfRedBlackTree(30, root);
-	root->right->color = Color::BLACK;
+	root->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	//
 	
 	root->left->left = new NodeOfRedBlackTree(1, root->left);
-	root->left->left->color = Color::BLACK;
+	root->left->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->left->right = new NodeOfRedBlackTree(7, root->left);
-	root->left->right->color = Color::BLACK;
+	root->left->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 
 	root->right->left = new NodeOfRedBlackTree(25, root->right);
-	root->right->left->color = Color::RED;
+	root->right->left->color = RedBlackTreeColor::RedBlackTreeColorRED;
 
 	root->right->right = new NodeOfRedBlackTree(40, root->right);
-	root->right->right->color = Color::BLACK;
+	root->right->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	//
 	
 	root->right->left->left = new NodeOfRedBlackTree(20, root->right->left);
-	root->right->left->left->color = Color::BLACK;
+	root->right->left->left->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	root->right->left->right = new NodeOfRedBlackTree(28, root->right->left);
-	root->right->left->right->color = Color::BLACK;
+	root->right->left->right->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
 	
 	RedBlackTree r;
 	r.setAsRoot(root);
@@ -771,34 +771,34 @@ TEST_CASE("Testing the remove call, case 5, that also tests the cases 3 and 6, i
 	root = r.getRoot();
 	
 	REQUIRE(root->data == 25);
-	REQUIRE(root->color == Color::BLACK);
+	REQUIRE(root->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->data == 10);
-	REQUIRE(root->left->color == Color::BLACK);
+	REQUIRE(root->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->data == 30);
-	REQUIRE(root->right->color == Color::BLACK);
+	REQUIRE(root->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	//
 
 	REQUIRE(root->left->left->data == 5);
-	REQUIRE(root->left->left->color == Color::BLACK);
+	REQUIRE(root->left->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->left->right->data == 20);
-	REQUIRE(root->left->right->color == Color::BLACK);
+	REQUIRE(root->left->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->left->data == 28);
-	REQUIRE(root->right->left->color == Color::BLACK);
+	REQUIRE(root->right->left->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 
 	REQUIRE(root->right->right->data == 40);
-	REQUIRE(root->right->right->color == Color::BLACK);
+	REQUIRE(root->right->right->color == RedBlackTreeColor::RedBlackTreeColorBLACK);
 	
 	//
 	
 	REQUIRE(root->left->left->right->data == 7);
-	REQUIRE(root->left->left->right->color == Color::RED);
+	REQUIRE(root->left->left->right->color == RedBlackTreeColor::RedBlackTreeColorRED);
 	
 }
 

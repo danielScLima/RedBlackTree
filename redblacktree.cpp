@@ -10,10 +10,16 @@ RedBlackTree::RedBlackTree()
 
 RedBlackTree::~RedBlackTree()
 {
+    cleanTree();
+}
+
+void RedBlackTree::cleanTree()
+{
     if (root != nullptr)
     {
         root->dealockSubTree();
         delete root;
+        root = nullptr;
     }
 }
 
@@ -37,14 +43,14 @@ NodeOfRedBlackTree* RedBlackTree::fatherOfNodeHasSibling(NodeOfRedBlackTree* nod
 
 void RedBlackTree::check(NodeOfRedBlackTree* node)
 {
-    if (node->father->color == Color::BLACK)
+    if (node->father->color == RedBlackTreeColor::RedBlackTreeColorBLACK)
         return;
 
     //Obter a cor do irmão do pai
     NodeOfRedBlackTree* siblingOfFather = fatherOfNodeHasSibling(node);
 
     //Analisar esta cor
-    if (siblingOfFather == nullptr || siblingOfFather->color == Color::BLACK)
+    if (siblingOfFather == nullptr || siblingOfFather->color == RedBlackTreeColor::RedBlackTreeColorBLACK)
     {
         //Atualizar alturas da arvore
         updateHeightOfFullTree();
@@ -57,26 +63,27 @@ void RedBlackTree::check(NodeOfRedBlackTree* node)
         {
             if (rotationType == RotationType::SimpleRotationToLeft)
             {
-                node->color = Color::RED;
-                node->father->color = Color::BLACK;
-                node->father->left->color = Color::RED;
+                node->color = RedBlackTreeColor::RedBlackTreeColorRED;
+                node->father->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
+                node->father->left->color = RedBlackTreeColor::RedBlackTreeColorRED;
             }
             else if (rotationType == RotationType::SimpleRotationToRight)
             {
-                node->color = Color::RED;
-                node->father->color = Color::BLACK;
-                node->father->right->color = Color::RED;
+                node->color = RedBlackTreeColor::RedBlackTreeColorRED;
+                node->father->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
+                node->father->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
             }
             else if (rotationType == RotationType::DoubleRotationToLeft ||
                      rotationType == RotationType::DoubleRotationToRight)
             {
-                node->color = Color::BLACK;
-                node->left->color = Color::RED;
-                node->right->color = Color::RED;
+                node->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
+                node->left->color = RedBlackTreeColor::RedBlackTreeColorRED;
+                node->right->color = RedBlackTreeColor::RedBlackTreeColorRED;
             }
         }
     }
-    else if (siblingOfFather != nullptr && siblingOfFather->color == Color::RED)
+    else if (siblingOfFather != nullptr &&
+             siblingOfFather->color == RedBlackTreeColor::RedBlackTreeColorRED)
     {
         //Atribuir novas cores ao pai e sibling of pai
         changeColor(node->father);
@@ -94,10 +101,10 @@ void RedBlackTree::check(NodeOfRedBlackTree* node)
 
 void RedBlackTree::changeColor(NodeOfRedBlackTree* node)
 {
-    if (node->color == Color::RED)
-        node->color = Color::BLACK;
+    if (node->color == RedBlackTreeColor::RedBlackTreeColorRED)
+        node->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
     else
-        node->color = Color::RED;
+        node->color = RedBlackTreeColor::RedBlackTreeColorRED;
 }
 
 bool RedBlackTree::insertInterface(int data)
@@ -108,11 +115,11 @@ bool RedBlackTree::insertInterface(int data)
     {
         if (root == inserted)
         {
-            inserted->color = Color::BLACK;
+            inserted->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
         }
         else
         {
-            inserted->color = Color::RED;
+            inserted->color = RedBlackTreeColor::RedBlackTreeColorRED;
 
             check(inserted);
         }
@@ -292,7 +299,7 @@ void RedBlackTree::removeSwitchRedBlack(NodeOfRedBlackTree* nodeToRemove)
     //Como o nó a ser removido é o menor da subarvore, ele não tem left
 
     //case 1
-    if (nodeToRemove->color == Color::RED)
+    if (nodeToRemove->color == RedBlackTreeColor::RedBlackTreeColorRED)
     {
         //parece que nó vermelho a ser removido não tem filho leaf right
         //Altera apenas no pai o ponteiro para nulo (estou colocando right)
@@ -301,13 +308,13 @@ void RedBlackTree::removeSwitchRedBlack(NodeOfRedBlackTree* nodeToRemove)
             nodeToRemove->father, nodeToRemove, nodeToRemove->right
         );
     }
-    else if (nodeToRemove->color == Color::BLACK)
+    else if (nodeToRemove->color == RedBlackTreeColor::RedBlackTreeColorBLACK)
     {
         if (nodeToRemove->left == nullptr && nodeToRemove->right == nullptr)
         {
             //surge double black
             NodeOfRedBlackTree* doubleBlackNode = new NodeOfRedBlackTree(-999, nodeToRemove->father);
-            doubleBlackNode->color = Color::DOUBLEBLACK;
+            doubleBlackNode->color = RedBlackTreeColor::RedBlackTreeColorDOUBLEBLACK;
             replacePointerInFather
             (
                 nodeToRemove->father, nodeToRemove, doubleBlackNode
@@ -324,7 +331,7 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
     //If case 2
     if (doubleBlackNode->father == nullptr) //root
     {
-        doubleBlackNode->color = BLACK;
+        doubleBlackNode->color = RedBlackTreeColorBLACK;
         //That is all
         return;
     }
@@ -333,18 +340,18 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
     NodeOfRedBlackTree* sibling = getBrotherOfNode(doubleBlackNode->father, doubleBlackNode);
 
     //Get left child color of brother
-    Color colorOfLeftChildOfSibling = Color::BLACK;
+    RedBlackTreeColor colorOfLeftChildOfSibling = RedBlackTreeColor::RedBlackTreeColorBLACK;
     if (sibling->left != nullptr)
         colorOfLeftChildOfSibling = sibling->left->color;
     //Get right child of brother
-    Color colorOfRightChildOfSibling = Color::BLACK;
+    RedBlackTreeColor colorOfRightChildOfSibling = RedBlackTreeColor::RedBlackTreeColorBLACK;
     if (sibling->right != nullptr)
         colorOfRightChildOfSibling = sibling->right->color;
 
     //If case 3
-    if (sibling->color == Color::BLACK &&
-        colorOfLeftChildOfSibling == Color::BLACK &&
-        colorOfRightChildOfSibling == Color::BLACK)
+    if (sibling->color == RedBlackTreeColor::RedBlackTreeColorBLACK &&
+        colorOfLeftChildOfSibling == RedBlackTreeColor::RedBlackTreeColorBLACK &&
+        colorOfRightChildOfSibling == RedBlackTreeColor::RedBlackTreeColorBLACK)
     {
         //remover pode ser só tirar o double e colocar um black
         if (doubleBlackNode->data == -999)
@@ -355,16 +362,16 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
             );
         }
         else
-            doubleBlackNode->color = BLACK;
+            doubleBlackNode->color = RedBlackTreeColorBLACK;
 
-        if (doubleBlackNode->father->color == RED)
-            doubleBlackNode->father->color = BLACK;
-        else if (doubleBlackNode->father->color == BLACK)
-            doubleBlackNode->father->color = DOUBLEBLACK;
+        if (doubleBlackNode->father->color == RedBlackTreeColorRED)
+            doubleBlackNode->father->color = RedBlackTreeColorBLACK;
+        else if (doubleBlackNode->father->color == RedBlackTreeColorBLACK)
+            doubleBlackNode->father->color = RedBlackTreeColorDOUBLEBLACK;
 
-        sibling->color = RED;
+        sibling->color = RedBlackTreeColorRED;
 
-        if (doubleBlackNode->father->color == DOUBLEBLACK)
+        if (doubleBlackNode->father->color == RedBlackTreeColorDOUBLEBLACK)
         {
             //se foi produzido doubleblack, chama removeDoubleBlackSituation
             removeDoubleBlackSituation(doubleBlackNode->father);
@@ -378,7 +385,7 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
     }
 
     //If case 4
-    if (sibling->color == Color::RED)
+    if (sibling->color == RedBlackTreeColor::RedBlackTreeColorRED)
     {
         swapColors(doubleBlackNode->father, sibling);
 
@@ -434,8 +441,8 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
 
     NodeOfRedBlackTree* closerNode = getCloserChildOfDoubleBlackNode(sibling);
     NodeOfRedBlackTree* furtherNode = getFurtherChildOfDoubleBlackNode(sibling);
-    Color colorOfCloserNode = Color::BLACK; //o default é não existe
-    Color colorOfFurtherNode = Color::BLACK; //o default é não existe
+    RedBlackTreeColor colorOfCloserNode = RedBlackTreeColor::RedBlackTreeColorBLACK; //o default é não existe
+    RedBlackTreeColor colorOfFurtherNode = RedBlackTreeColor::RedBlackTreeColorBLACK; //o default é não existe
 
     if (closerNode != nullptr)
         colorOfCloserNode = closerNode->color;
@@ -443,9 +450,9 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
         colorOfFurtherNode = furtherNode->color;
 
     //If case 5
-    if (sibling->color == Color::BLACK &&
-        colorOfFurtherNode == Color::BLACK &&
-        colorOfCloserNode == Color::RED)
+    if (sibling->color == RedBlackTreeColor::RedBlackTreeColorBLACK &&
+        colorOfFurtherNode == RedBlackTreeColor::RedBlackTreeColorBLACK &&
+        colorOfCloserNode == RedBlackTreeColor::RedBlackTreeColorRED)
     {
         swapColors(sibling, closerNode);
 
@@ -494,8 +501,8 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
     }
 
     //If case 6
-    if (sibling->color == Color::BLACK &&
-            colorOfFurtherNode == Color::RED)
+    if (sibling->color == RedBlackTreeColor::RedBlackTreeColorBLACK &&
+            colorOfFurtherNode == RedBlackTreeColor::RedBlackTreeColorRED)
     {
         //passo 6 só dará certo se os pais estiverem corretos
         swapColors(doubleBlackNode->father, sibling);
@@ -571,16 +578,16 @@ void RedBlackTree::removeDoubleBlackSituation(NodeOfRedBlackTree* doubleBlackNod
             );
         }
         else
-            doubleBlackNode->color = BLACK;
+            doubleBlackNode->color = RedBlackTreeColorBLACK;
 
         //altera cor de red child para black
-        furtherNode->color = Color::BLACK;
+        furtherNode->color = RedBlackTreeColor::RedBlackTreeColorBLACK;
     }
 }
 
 void RedBlackTree::swapColors(NodeOfRedBlackTree* one, NodeOfRedBlackTree* two)
 {
-    Color tmp = one->color;
+    RedBlackTreeColor tmp = one->color;
     one->color = two->color;
     two->color = tmp;
 }
@@ -632,9 +639,9 @@ NodeOfRedBlackTree* RedBlackTree::getBrotherOfNode
 }
 
 //Using in order sucessor
-RemoveReturn RedBlackTree::remove(int data)
+RemoveReturnRB RedBlackTree::remove(int data)
 {
-    RemoveReturn ret;
+    RemoveReturnRB ret;
 
     if (root == nullptr)
     {
@@ -1009,9 +1016,9 @@ void RedBlackTree::exibirSubArvore1
 {
     //Desenha o dado do nó n
     content += std::to_string(n->data);
-    if (n->color == Color::RED)
+    if (n->color == RedBlackTreeColor::RedBlackTreeColorRED)
         content += "[fillcolor=red];";
-    else if (n->color == Color::BLACK)
+    else if (n->color == RedBlackTreeColor::RedBlackTreeColorBLACK)
         content += "[fillcolor=black];";
     else //double black
         content += "[fillcolor=black shape=doublecircle];";
@@ -1065,7 +1072,7 @@ void RedBlackTree::exibirSubArvore2
     content += "    label = <<table border=\"0\" cellspacing=\"0\">";
     content += "    <tr>";
     content += "    <td port=\"port1\" border=\"1\">Left</td>";
-    if (n->color == Color::BLACK)
+    if (n->color == RedBlackTreeColor::RedBlackTreeColorBLACK)
     {
         content += "    <td port=\"port2\" border=\"1\" bgcolor=\"black\"><FONT COLOR=\"white\">"+std::to_string(n->data)+"</FONT></td>";
     }
