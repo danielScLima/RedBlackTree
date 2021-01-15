@@ -1,27 +1,22 @@
+# Version format
 version: 1.0.{build}
 
-image:
-- Ubuntu2004
+# Build worker image
+image: Visual Studio 2017
 
-configuration:
-- Debug
-- Release
+# Build platform
+platform: Any CPU
 
-environment:
-  matrix:
-  - DBUILD_SHARED_LIBS: 0
-  - DBUILD_SHARED_LIBS: 1
+# Build Configuration
+configuration: Debug
 
-for:
--
-  matrix:
-    only:
-      - image: Ubuntu
-  before_build:
-    - mkdir -p build; cd build; cmake ..; cmake --build .
-  build_script:
-    - make -f MakefileGeneral
-
+# MSBuild settings
 build:
-  verbosity: normal
+  project: src\PROJECT.sln
+  verbosity: quiet
 
+# Execute script before build
+before_build:
+ - nuget restore src\PROJECT.sln
+
+# Omitted the tests, as they are not relevant for the question
