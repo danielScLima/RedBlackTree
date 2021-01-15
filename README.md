@@ -1,6 +1,9 @@
 RedBlackTree
 ====================
 
+![https://img.shields.io/appveyor/build/DanielSLima/redblacktree](https://img.shields.io/appveyor/build/DanielSLima/redblacktree)
+
+
 This repository has a project with the implementation of a RedBlackTree.
 
 It is written in C++.
