@@ -1,7 +1,7 @@
 RedBlackTree
 ====================
 
-![https://img.shields.io/appveyor/build/DanielSLima/redblacktree](https://img.shields.io/appveyor/build/DanielSLima/redblacktree)
+[![Build status](https://ci.appveyor.com/api/projects/status/7oh5x312io8pd5bu?svg=true)](https://ci.appveyor.com/project/DanielSLima/redblacktree)
 
 
 This repository has a project with the implementation of a RedBlackTree.
