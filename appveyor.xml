@@ -2,7 +2,7 @@
 version: 1.0.{build}
 
 # Build worker image
-image: Visual Studio 2017
+image: ubuntu
 
 # Build platform
 platform: Any CPU
@@ -10,13 +10,6 @@ platform: Any CPU
 # Build Configuration
 configuration: Debug
 
-# MSBuild settings
-build:
-  project: PROJECT.sln
-  verbosity: quiet
-
-# Execute script before build
-before_build:
- - nuget restore PROJECT.sln
+build_script: mkdir -p build; cd build; cmake ..; cmake --build .
 
 # Omitted the tests, as they are not relevant for the question
