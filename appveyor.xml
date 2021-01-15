@@ -1,8 +1,7 @@
 version: 1.0.{build}
 
 image:
-- Visual Studio 2019
-- Visual Studio 2017
+- Ubuntu2004
 
 configuration:
 - Debug
