@@ -1,8 +1,10 @@
 RedBlackTree
 ====================
 
-[![Build status](https://ci.appveyor.com/api/projects/status/7oh5x312io8pd5bu?svg=true)](https://ci.appveyor.com/project/DanielSLima/redblacktree)
+Build with Appveyor: [![Build status](https://ci.appveyor.com/api/projects/status/7oh5x312io8pd5bu?svg=true)](https://ci.appveyor.com/project/DanielSLima/redblacktree)
 
+
+Build with Travis: [![Build Status](https://travis-ci.com/danielScLima/RedBlackTree.svg?branch=master)](https://travis-ci.com/danielScLima/RedBlackTree)
 
 This repository has a project with the implementation of a RedBlackTree.
 
