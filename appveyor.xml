@@ -18,9 +18,9 @@ for:
     only:
       - image: Ubuntu
   before_build:
-    - mkdir -p build; cd build; cmake -DCMAKE_BUILD_TYPE=%CONFIGURATION% ..
+    - mkdir -p build; cd build; cmake ..; cmake --build .
   build_script:
-    - make
+    - make -f MakefileGeneral
 
 build:
   verbosity: normal
