@@ -177,7 +177,7 @@ void MainWindow::on_pushButtonChangeColor_clicked()
     std::string colors = ui->lineEditOfColors->text().toStdString();
     split3(colors, colorAsString);
 
-    std::vector<Color> vectorOfColors;
+    std::vector<RedBlackTreeColor> vectorOfColors;
 
     for (auto colorAsStr: colorAsString)
     {
@@ -189,11 +189,11 @@ void MainWindow::on_pushButtonChangeColor_clicked()
             colorAsStr.compare("RED") == 0
         )
         {
-            vectorOfColors.push_back(Color::RED);
+            vectorOfColors.push_back(RedBlackTreeColor::RedBlackTreeColorRED);
         }
         else
         {
-            vectorOfColors.push_back(Color::BLACK);
+            vectorOfColors.push_back(RedBlackTreeColor::RedBlackTreeColorBLACK);
         }
     }
 
